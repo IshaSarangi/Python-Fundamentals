@@ -453,8 +453,164 @@ def find_max(num1, num2):
         return -1
 
 
-max_num=find_max(10,15)
-print(max_num)    
+# max_num=find_max(10,15)
+# print(max_num)    
 
 # 10 11 12 13 14 15
+
+############### 
+def create_largest_number(ls):
+    ls.sort(reverse=True)
+    ans = ''
+    for i in ls:
+        ans += str(i)
+    # ls=list(map(str,ls))
+    # n="".join(ls)
+    print(int(ans))
+
+# 
+# y = [23,54,67]
+# create_largest_number(y)
+
+# 675423
+
+################### Problem ####################
+'''
+Write a python program to display all the common characters between two strings. 
+
+Return -1 if there are no matching characters.
+
+Note: Ignore blank spaces if there are any. Perform case sensitive string comparison wherever necessary.
+
+Sample Input                                Expected output
+
+"I like Python"
+"Java is a very popular language"               lieyon
+'''
+
+# def find_common_characters(msg1,msg2):
+#     pass #Remove pass and write your logic here
+
+# #Provide different values for msg1,msg2 and test your program
+# msg1="I like Python"
+# msg2="Java is a very popular language"
+# common_characters=find_common_characters(msg1,msg2)
+# print(common_characters)
+
+# def find_common_characters(msg1,msg2):
+#     s=""
+#     for i in msg1:
+#         if i==" ":
+#             pass
+#         elif i in msg2:
+#             s+=i
+#     if s=="":
+#         return -1
+#     else:
+#         return s
+
+# # #Provide different values for msg1,msg2 and test your program
+# msg1="I like Python"
+# msg2="Java is a very popular language"
+# common_characters=find_common_characters(msg1,msg2)
+# print(common_characters)
+
+def find_common_characters(msg1,msg2):
+    string = ''
+    for i in msg1:
+        if i in msg2:
+            if i not in string:
+                string = string + i
+    if(string):
+        return string.replace(" ","")
+    else:
+        return -1
+
+#msg1 = input('Enter 1st string: ')
+#msg2 = input('Enter 2nd string: ')
+
+msg1="I like Python"
+msg2="Java is a very popular language"
+# common_characters=find_common_characters(msg1,msg2)
+# print(common_characters)
+
+
+'''
+Write a python function to check whether three given numbers can form the sides of a triangle. 
+Hint: Three numbers can be the sides of a triangle if none of the numbers are greater than or equal to the sum of the other two numbers.
+'''
+
+def form_triangle(num1,num2,num3):
+    #Do not change the messages provided below
+    success="Triangle can be formed"
+    failure="Triangle can't be formed"
+
+    #Write your logic here
+
+    #Use the following messages to return the result wherever necessary
+    return success
+    return failure
+
+num1=3
+num2=3
+num3=5
+form_triangle(num1, num2, num3)
+
+
+'''
+Write a python function, encrypt_sentence() which accepts a message and encrypts it based on rules given below and returns the encrypted message.
+Words at odd position -> Reverse It
+Words at even position -> Rearrange the characters so that all consonants appear before the vowels
+ and their order should not change
+
+Note: 
+
+Assume that the sentence would begin with a word and there will be only a single space between the words.
+
+Perform case sensitive string operations wherever necessary.
+
+Exmple :-
+
+the sun rises in the east    --> eht snu sesir ni eht stea
+'''
+
+                                                                                                                                                                                                                                                                                    
+# def encrypt_sentence(sentence):
+#     #start writing your code here
+
+# sentence="The sun rises in the east"
+# encrypted_sentence=encrypt_sentence(sentence)
+# print(encrypted_sentence)
+
+
+vowels=['a','e','i','o','u']
+
+def encrypt_sentence(sentence):
+    final=[]
+    list_sentence = sentence.split(" ")
+    for index,word in enumerate(list_sentence):
+        if (index+1)%2!=0:
+            final.append(word[::-1])
+        else:
+            v=[]#to store all vowels
+            t=[]#to store the letters temporily
+            for letter in word:
+                if letter not in vowels:
+                    t.append(letter)
+                else:
+                    v.append(letter)
+            t.extend(v)
+            # t = ['s','n','u']
+            final.append("".join(t))
+    #if len(final)>1:
+    return " ".join(final)
+                    
+# sentence="the"
+# encrypted_sentence=encrypt_sentence(sentence)
+# print(encrypted_sentence)
+sentence="the sun rises in the east"
+encrypted_sentence=encrypt_sentence(sentence)
+print(encrypted_sentence)
+
+
 
